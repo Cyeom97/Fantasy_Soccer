@@ -4,7 +4,7 @@
 
 #### Links About Me
 
-[Github](https://github.com/Cyeom97/Fantasy_Soccer) [Trello](https://trello.com/invite/b/eJ1U66G5/ATTIe91fb906f363b5f5e1113c3acc3a4a93E8D1444D/fantasy-soccer)
+[Github](https://github.com/Cyeom97/Fantasy_Soccer) [Trello](https://trello.com/b/eJ1U66G5/fantasy-soccer)
 
 ## **Overview**
 

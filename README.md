@@ -14,8 +14,8 @@ I wanted to build a PERN Stack fantasy soccer app that allows users to create an
 
 ## **ERD**
 
-![ERD](/images/Screenshot%202022-12-07%20at%203.15.10%20PM.png)
+![ERD](/images/Screenshot%202022-12-08%20at%209.25.23%20AM.png)
 
 ## **CHD**
 
-![CHD](/images/Screenshot%202022-12-07%20at%203.15.16%20PM.png)
+![CHD](/images/Screenshot%202022-12-08%20at%209.18.35%20AM.png)

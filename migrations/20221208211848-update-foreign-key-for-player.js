@@ -7,6 +7,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    return queryInterface.changeColumn('players', 'clubId', 'teamId')
+    return queryInterface.renameColumn('players', 'clubId', 'teamId')
   }
 }

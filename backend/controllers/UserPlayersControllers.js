@@ -1,8 +1,10 @@
-const { UserPlayer, Player } = require('../models')
+const { UserPlayer, Player, User } = require('../models')
 
-const GetPlayers = async (req, res) => {
+const GetPlayersByUser = async (req, res) => {
   try {
-    const players = await UserPlayer.findAll({
+    let userId = parseInt(req.params.id)
+    const user = await User.findOne({
+      where: { id: userId },
       include: [
         {
           model: Player,
@@ -11,7 +13,7 @@ const GetPlayers = async (req, res) => {
         }
       ]
     })
-    res.send(players)
+    res.send(user)
   } catch (error) {
     throw error
   }
@@ -40,7 +42,7 @@ const UpdateTeam = async (req, res) => {
 }
 
 module.exports = {
-  GetPlayers,
+  GetPlayersByUser,
   CreateTeam,
   UpdateTeam
 }

@@ -1,8 +1,8 @@
-const { UserPlayer } = require('../models')
+const { UserPlayer, Player } = require('../models')
 
 const GetPlayers = async (req, res) => {
   try {
-    const players = await User.findAll({
+    const players = await UserPlayer.findAll({
       include: [
         {
           model: Player,

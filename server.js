@@ -4,6 +4,7 @@ const logger = require('morgan')
 const AuthRouter = require('./routes/AuthRouter')
 const PlayersRouter = require('./routes/PlayersRouter')
 const TeamRouter = require('./routes/TeamsRouter')
+const UserRouter = require('./routes/UsersRouter')
 
 const app = express()
 
@@ -18,5 +19,6 @@ app.use(express.json())
 app.use('/auth', AuthRouter)
 app.use('/players', PlayersRouter)
 app.use('/teams', TeamRouter)
+app.use('/users', UserRouter)
 
 app.listen(PORT, () => console.log(`Server Running on Port: ${PORT}`))

@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const logger = require('morgan')
+const AuthRouter = require('./routes/AuthRouter')
 const PlayersRouter = require('./routes/PlayersRouter')
 const TeamRouter = require('./routes/TeamsRouter')
 
@@ -14,6 +15,7 @@ app.use(logger('dev'))
 app.use(express.json())
 
 //routes
+app.use('/auth', AuthRouter)
 app.use('/players', PlayersRouter)
 app.use('/teams', TeamRouter)
 

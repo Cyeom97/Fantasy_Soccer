@@ -4,7 +4,7 @@ const { Player, User } = require('../models')
 const GetPlayers = async (req, res) => {
   try {
     const players = await Player.findAll({
-      include: [{ model: User, as: 'players', attributes: ['username'] }]
+      include: [{ model: User, as: 'players', attributes: ['email'] }]
     })
     res.send(players)
   } catch (error) {
@@ -26,7 +26,7 @@ const GetOnePlayer = async (req, res) => {
     let playerId = parseInt(req.params.id)
     const player = await Player.findOne({
       where: { id: playerId },
-      include: [{ model: User, as: 'players', attributes: ['username'] }]
+      include: [{ model: User, as: 'players', attributes: ['email'] }]
     })
     res.send(player)
   } catch (error) {

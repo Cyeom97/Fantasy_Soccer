@@ -1,30 +1,32 @@
 import { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-import Client from '../services/api'
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
+import { BASE_URL } from '../services/api'
 
 const Profile = ({ user, authenticated }) => {
   let { id } = useParams()
   const [players, setPlayers] = useState([])
-  const [team, setTeam] = useState([])
+  // const [team, setTeam] = useState([])
   const [myPlayers, setMyPlayers] = useState([])
-
-  const [timeInterval, setTimeInterval] = useState(0)
-
-  setTimeout(() => {
-    setTimeInterval(timeInterval + 1)
-  }, 2000)
 
   useEffect(() => {
     const handleUser = async () => {
-      let getPlayers = await Client.get(`players`)
-      setPlayers(getPlayers)
+      let getPlayers = await axios.get(`${BASE_URL}players`)
+      // let user = await axios.get(`$users/${id}`)
+      setPlayers(getPlayers.data)
+      // setMyPlayers(user)
     }
     handleUser()
-  }, [timeInterval])
+  }, [id])
 
   return user && authenticated ? (
     <div>
-      <h1>Hi</h1>
+      {players.map((player) => (
+        <div key={player.id}>
+          <h2>{player.name}</h2>
+          <img src={player.image}></img>
+        </div>
+      ))}
     </div>
   ) : (
     <div>

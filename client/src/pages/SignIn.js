@@ -25,7 +25,7 @@ const SignIn = (props) => {
     <div>
       <h1>Hello</h1>
       <p>
-        Sign in to your YouBuy account or{' '}
+        Sign in to your FantasySoccer account or{' '}
         <Link to="/Register">create an account</Link>
       </p>
       <div className="sign">

@@ -5,6 +5,8 @@ import './App.css'
 import Home from './pages/Home'
 import SignIn from './pages/SignIn'
 import Register from './pages/Register'
+import GetTeam from './pages/Team'
+import Profile from './pages/Profile'
 import { CheckSession } from './services/Auth'
 
 function App() {
@@ -41,6 +43,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/teams/:id" element={<GetTeam />} />
           <Route
             path="/signin"
             element={
@@ -51,6 +54,10 @@ function App() {
             }
           />
           <Route path="/register" element={<Register />} />
+          <Route
+            path="/profile/:id"
+            element={<Profile user={user} authenticated={authenticated} />}
+          />
         </Routes>
       </main>
     </div>

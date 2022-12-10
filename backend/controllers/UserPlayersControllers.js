@@ -8,7 +8,7 @@ const GetPlayersByUser = async (req, res) => {
       include: [
         {
           model: Player,
-          as: 'owners',
+          as: 'owner',
           attributes: ['name', 'position', 'price']
         }
       ]

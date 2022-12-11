@@ -19,3 +19,7 @@ I wanted to build a PERN Stack fantasy soccer app that allows users to create an
 ## **CHD**
 
 ![CHD](/images/Screenshot%202022-12-08%20at%209.18.35%20AM.png)
+
+### References
+
+[SoccerPitch](https://codepen.io/elliotbirch/pen/OaWYaK?editors=0110)

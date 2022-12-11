@@ -49,7 +49,7 @@ function App() {
           <Route path="/teams" element={<AllClubs />} />
           <Route path="/teams/:id" element={<GetTeam />} />
           <Route path="/players" element={<AllPlayers />} />
-          <Route path="/pickteam/:id" element={<PickTeam />} />
+          <Route path="/pickteam" element={<PickTeam />} />
           <Route
             path="/signin"
             element={

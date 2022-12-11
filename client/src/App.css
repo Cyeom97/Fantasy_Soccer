@@ -57,3 +57,140 @@ img{
   max-height: 300px;
 }
 
+.pitch {
+  background: repeating-linear-gradient(
+		rgba(255, 255, 255, 0.05),
+		rgba(255, 255, 255, 0.05) 20%,
+		transparent 20%,
+		transparent 40%
+	);
+  background-color: #3aaa35; 
+	max-width: 800px;
+	height: 29.5rem;
+	padding: 1.5rem;
+	padding-bottom: 0;
+	position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 60px;
+}
+.pitch::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 25%;
+  width: 100%;
+  z-index: 1;
+  background: -moz-linear-gradient(
+    top,
+    rgba(58, 170, 53, 0) 0%,
+    rgba(58, 170, 53, 1) 100%
+  ); 
+  background: -webkit-linear-gradient(
+    top,
+    rgba(58, 170, 53, 0) 0%,
+    rgba(58, 170, 53, 1) 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(58, 170, 53, 0) 0%,
+    rgba(58, 170, 53, 1) 100%
+  ); 
+  filter: progid:DXImageTransform.Microsoft.gradient(
+      startColorstr="#003aaa35",
+      endColorstr="#3aaa35",
+      GradientType=0
+    ); 
+}
+.lines {
+  border: 0.1875rem solid rgba(255, 255, 255, 0.3);
+  border-bottom: transparent;
+  height: calc(100% - 0.375rem);
+  display: block;
+  position: relative;
+}
+.corner {
+  width: 1rem;
+  height: 1rem;
+  display: block;
+  position: absolute;
+  border: 0.1875rem solid rgba(255, 255, 255, 0.3);
+  border-left: 0.1875rem solid transparent;
+  border-top: 0.1875rem solid transparent;
+  border-bottom: 0.1875rem solid transparent;
+}
+.corner-top-left {
+    top: -0.6875rem;
+    left: -0.6875rem;
+    transform: rotate(45deg);
+}
+.corner-top-right {
+  top: -0.6875rem;
+  right: -0.6875rem;
+  transform: rotate(135deg);
+}
+.goalBox {
+  border: 0.1875rem solid rgba(255, 255, 255, 0.3);
+  border-top: transparent;
+  margin: 0 auto;
+  width: 11.87rem;
+  height: 5.5rem;
+  position: relative;
+}
+
+.goalBox::before {
+  content: "";
+  display: block;
+  border: 0.1875rem solid rgba(255, 255, 255, 0.3);
+  border-top: transparent;
+  width: 6.875rem;
+  height: 3rem;
+  margin: 0 auto;
+}
+
+.goalBox::after {
+  content: "";
+  display: block;
+  border: 0.1875rem solid rgba(255, 255, 255, 0.3);
+  border-top: transparent;
+  width: 3.5rem;
+  height: 1.75rem;
+  border-bottom-left-radius: 3.5rem;
+  border-bottom-right-radius: 3.5rem;
+  margin: 2.5rem 4rem 4rem 4rem;
+}
+
+.half {
+  width: 100%;
+  height: 5.75rem;
+  border-top: 0.1875rem solid rgba(255, 255, 255, 0.3);
+  position: absolute;
+  bottom: 0;
+}
+
+.half::before {
+  content: "";
+  display: block;
+  border: 0.1875rem solid rgba(255, 255, 255, 0.3);
+  box-sizing: border-box;
+  width: 7rem;
+  height: 7rem;
+  margin: -3.55rem auto 0;
+  border-radius: 7rem;
+}
+
+.half::after {
+  content: "";
+  display: block;
+  background: rgba(255, 255, 255, 0.3);
+  box-sizing: border-box;
+  width: 1rem;
+  height: 1rem;
+  margin: -4rem auto 0;
+  border-radius: 1rem;
+}
+
+.def{
+  z-index: -1;
+}

@@ -9,6 +9,7 @@ const Nav = ({ authenticated, user, handleLogout }) => {
         <h2 className='title'>Soccer Manager</h2>
         <Link to="/">Home</Link>
         <Link to="/teams">Teams</Link>
+        <Link to="/players">Players</Link>
         <Link onClick={handleLogout} to="/">Sign Out</Link>
       </nav>
     )
@@ -19,6 +20,7 @@ const Nav = ({ authenticated, user, handleLogout }) => {
       <h2 className='title'>Soccer Manager</h2>
       <Link to="/">Home</Link>
       <Link to="teams">Teams</Link>
+      <Link to="/players">Players</Link>
       <Link to="/Register">Register</Link>
       <Link to="/Signin">Sign In</Link>
     </nav>

@@ -12,21 +12,25 @@ const Profile = ({ user, authenticated }) => {
   useEffect(() => {
     const handleUser = async () => {
       let getPlayers = await axios.get(`${BASE_URL}players`)
-      // let user = await axios.get(`$users/${id}`)
+      let user = await axios.get(`${BASE_URL}users/${id}`)
       setPlayers(getPlayers.data)
-      // setMyPlayers(user)
+      setMyPlayers(user.data)
     }
     handleUser()
   }, [id])
 
   return user && authenticated ? (
     <div>
-      {players.map((player) => (
-        <div key={player.id}>
-          <h2>{player.name}</h2>
-          <img src={player.image}></img>
-        </div>
-      ))}
+      <h1>My Team</h1>
+      <section>
+        {myPlayers.owner.map((player) => (
+          <div key={player.name}>
+            <h2>{player.name}</h2>
+            <h3>{player.position}</h3>
+            <h3>${player.price}</h3>
+          </div>
+        ))}
+      </section>
     </div>
   ) : (
     <div>

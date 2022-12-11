@@ -3,9 +3,10 @@ body {
 }
 
 header{
-  height: 14em;
-  background: linear-gradient(to bottom right,#f49729, white );
+  height: 7em;
+  background-color: #22418f;
   box-shadow: 4px 4px 60px rgba(0,0,0,.5); 
+  margin-bottom: 30px;
 }
 
 .sticky-header {
@@ -18,32 +19,32 @@ header{
   display: flex;
   overflow: hidden;
   margin-bottom: 1em;
-  justify-content: flex-end;
+  justify-content: space-between;
   font-size: 150%;
 }
 
 .links a {
-  font-size: 135%;
+  font-size: 100%;
 }
 
-.links a, .drop .greet, .update{
+.links a{
   padding-left: 1.5%;
   float: left;
   text-align: left;
   text-decoration: none;
+  color: white;
   margin-right: 8px;
 }
 
-.update {
-  text-align: left;
-  font-size: 100%;
+
+.dropdown-content a:hover, .update:hover {
+  background-color: #ddd;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
-.links a:hover, .dropdown:hover, .dropbtn {
-  text-decoration: underline;
-}
-
-.dropdown {
-  float: left;
-  overflow: hidden;
+.title{
+  text-align: right;
+  float: right;
 }

@@ -15,7 +15,7 @@ const Nav = ({ authenticated, user, handleLogout }) => {
       </nav>
     )
   }
-  
+
   const publicOptions = (
     <nav className="links">
       <h2 className='title'>Soccer Manager</h2>

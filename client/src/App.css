@@ -20,6 +20,7 @@ header{
   overflow: hidden;
   margin-bottom: 1em;
   justify-content: space-between;
+  align-items: center;
   font-size: 150%;
 }
 

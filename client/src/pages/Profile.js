@@ -5,15 +5,15 @@ import { BASE_URL } from '../services/api'
 
 const Profile = ({ user, authenticated }) => {
   let { id } = useParams()
-  const [players, setPlayers] = useState([])
+  // const [players, setPlayers] = useState([])
   // const [team, setTeam] = useState([])
   const [myPlayers, setMyPlayers] = useState([])
 
   useEffect(() => {
     const handleUser = async () => {
-      let getPlayers = await axios.get(`${BASE_URL}players`)
+      // let getPlayers = await axios.get(`${BASE_URL}players`)
       let user = await axios.get(`${BASE_URL}users/${id}`)
-      setPlayers(getPlayers.data)
+      // setPlayers(getPlayers.data)
       setMyPlayers(user.data)
     }
     handleUser()

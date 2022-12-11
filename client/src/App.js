@@ -5,6 +5,7 @@ import './App.css'
 import Home from './pages/Home'
 import SignIn from './pages/SignIn'
 import Register from './pages/Register'
+import AllClubs from './pages/AllClubs'
 import GetTeam from './pages/Team'
 import Profile from './pages/Profile'
 import { CheckSession } from './services/Auth'
@@ -43,6 +44,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/teams" element={<AllClubs />} />
           <Route path="/teams/:id" element={<GetTeam />} />
           <Route
             path="/signin"

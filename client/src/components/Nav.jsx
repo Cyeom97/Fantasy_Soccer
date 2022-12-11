@@ -1,13 +1,14 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Nav = ({ authenticated, user, handleLogout }) => {
-    const navigate = useNavigate()
+    
     let authenticatedOptions
   if (user) {
     authenticatedOptions = (
       <nav className="links">
         <h2 className='title'>Soccer Manager</h2>
         <Link to="/">Home</Link>
+        <Link to="/teams">Teams</Link>
         <Link onClick={handleLogout} to="/">Sign Out</Link>
       </nav>
     )
@@ -17,6 +18,7 @@ const Nav = ({ authenticated, user, handleLogout }) => {
     <nav className="links">
       <h2 className='title'>Soccer Manager</h2>
       <Link to="/">Home</Link>
+      <Link to="teams">Teams</Link>
       <Link to="/Register">Register</Link>
       <Link to="/Signin">Sign In</Link>
     </nav>

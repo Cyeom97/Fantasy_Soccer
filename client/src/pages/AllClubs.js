@@ -16,7 +16,7 @@ const AllClubs = () => {
   }, [])
 
   const viewTeam = (id) => {
-    navigate(`teams/${id}`)
+    navigate(`${id}`)
   }
 
   return (

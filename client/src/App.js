@@ -71,7 +71,7 @@ function App() {
             element={<Admin user={user} authenticated={authenticated} />}
           />
           <Route
-            path="/adminteam/:id"
+            path="/admin/:id/team/:id"
             element={<AdminTeam user={user} authenticated={authenticated} />}
           />
         </Routes>

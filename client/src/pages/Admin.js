@@ -37,7 +37,7 @@ const Admin = ({ user, authenticated }) => {
   }
 
   const viewTeam = (id) => {
-    navigate(`teams/${id}`)
+    navigate(`team/${id}`)
   }
 
   return user.email === 'chrisyeom@gmail.com' && authenticated ? (
@@ -74,7 +74,13 @@ const Admin = ({ user, authenticated }) => {
         {teams?.map((team) => (
           <div key={team.id}>
             <div>{team.name}</div>
-            <img src={team.image}></img>
+            <img
+              src={team.image}
+              alt="Team"
+              onClick={() => {
+                viewTeam(team.id)
+              }}
+            ></img>
             <div>Next Game: {team.schedule}</div>
             <div>Last Game: {team.scores}</div>
             <div>Current Points: {team.points}</div>

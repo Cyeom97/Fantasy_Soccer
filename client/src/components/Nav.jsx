@@ -10,6 +10,7 @@ const Nav = ({ authenticated, user, handleLogout }) => {
         <Link to="/">Home</Link>
         <Link to="/teams">Teams</Link>
         <Link to="/players">Players</Link>
+        <Link to="/pickteam">PickTeam</Link>
         <Link onClick={handleLogout} to="/">Sign Out</Link>
       </nav>
     )

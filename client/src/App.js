@@ -9,6 +9,7 @@ import AllClubs from './pages/AllClubs'
 import GetTeam from './pages/Team'
 import Profile from './pages/Profile'
 import AllPlayers from './pages/AllPlayers'
+import PickTeam from './pages/PickTeam'
 import { CheckSession } from './services/Auth'
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
           <Route path="/teams" element={<AllClubs />} />
           <Route path="/teams/:id" element={<GetTeam />} />
           <Route path="/players" element={<AllPlayers />} />
+          <Route path="/pickteam/:id" element={<PickTeam />} />
           <Route
             path="/signin"
             element={

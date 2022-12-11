@@ -5,11 +5,24 @@ import { BASE_URL } from '../services/api'
 const AllPlayers = () => {
   const [players, setPlayers] = useState([])
 
-  useEffect(() => {}, [])
+  useEffect(() => {
+    const apiCall = async () => {
+      let response = await axios.get(`${BASE_URL}players`)
+      setPlayers(response.data)
+    }
+    apiCall()
+  }, [])
 
   return (
     <div>
-      <div></div>
+      <section>
+        {players.map((player) => (
+          <div key={player.id}>
+            <h2>{player.name}</h2>
+            <img src={player.image} alt="player"></img>
+          </div>
+        ))}
+      </section>
     </div>
   )
 }

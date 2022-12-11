@@ -23,7 +23,7 @@ const Profile = ({ user, authenticated }) => {
     <div>
       <h1>My Team</h1>
       <section>
-        {myPlayers.owner.map((player) => (
+        {myPlayers.owner?.map((player) => (
           <div key={player.name}>
             <h2>{player.name}</h2>
             <h3>{player.position}</h3>

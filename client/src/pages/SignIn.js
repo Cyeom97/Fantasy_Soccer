@@ -5,11 +5,16 @@ import { Link } from 'react-router-dom'
 
 const SignIn = (props) => {
   const [formValues, setFormValues] = useState({ email: '', password: '' })
+  const [adminForm, setAdminForm] = useState({ email: '', password: '' })
 
   let navigate = useNavigate()
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
+  }
+
+  const adminChange = (e) => {
+    setAdminForm({ ...adminForm, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = async (e) => {
@@ -21,8 +26,17 @@ const SignIn = (props) => {
     navigate(`/profile/${payload.id}`)
   }
 
+  const adminSubmit = async (e) => {
+    e.preventDefault()
+    const payload = await SignInUser(adminForm)
+    setAdminForm({ email: '', password: '' })
+    props.setUser(payload)
+    props.toggleAuthenticated(true)
+    navigate(`/admin/${payload.id}`)
+  }
+
   return (
-    <div>
+    <div className="signinMessage">
       <h1>Hello</h1>
       <p>
         Sign in to your FantasySoccer account or{' '}
@@ -56,6 +70,41 @@ const SignIn = (props) => {
             <button
               className="regButton"
               disabled={!formValues.email || !formValues.password}
+            >
+              Sign In
+            </button>
+          </div>
+        </form>
+      </div>
+      <h2>Admin</h2>
+      <div className="sign">
+        <form className="col" onSubmit={adminSubmit}>
+          <div className="input-wrapper">
+            <input
+              className="email"
+              onChange={adminChange}
+              name="email"
+              type="email"
+              placeholder="example@example.com"
+              value={adminForm.email}
+              required
+            />
+          </div>
+          <div className="input-wrapper">
+            <input
+              className="password"
+              onChange={adminChange}
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={adminForm.password}
+              required
+            />
+          </div>
+          <div className="button1">
+            <button
+              className="regButton"
+              disabled={!adminForm.email || !adminForm.password}
             >
               Sign In
             </button>

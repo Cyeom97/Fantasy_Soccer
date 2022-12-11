@@ -159,6 +159,7 @@ img{
   border-bottom-left-radius: 3.5rem;
   border-bottom-right-radius: 3.5rem;
   margin: 2.5rem 4rem 4rem 4rem;
+  z-index: -1;
 }
 
 .half {
@@ -191,6 +192,29 @@ img{
   border-radius: 1rem;
 }
 
-.def{
-  z-index: -1;
+.goalie{
+  display: flex;
+  justify-content: center;
+  margin-top: -80px;
+}
+
+.goal{
+  text-align: center;
+}
+
+.defenders{
+  display: flex;
+  justify-content: space-around;
+}
+
+.midfielders{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.forwards{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
 }

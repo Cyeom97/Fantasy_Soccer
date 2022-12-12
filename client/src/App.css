@@ -226,3 +226,8 @@ img{
   margin: 30px;
   
 }
+
+.playerList{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}

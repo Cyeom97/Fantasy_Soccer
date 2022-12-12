@@ -12,7 +12,7 @@ const Nav = ({ authenticated, user, handleLogout }) => {
         <Link to="/">Home</Link>
         <Link to="/teams">Teams</Link>
         <Link to="/players">Players</Link>
-        <Link to="/pickteam">PickTeam</Link>
+        <Link to={`/pickteam/${user.id}`}>PickTeam</Link>
         <p className="back" onClick={() => navigate(-1)}>Back</p>
         <Link onClick={handleLogout} to="/">Sign Out</Link>
       </nav>

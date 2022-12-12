@@ -38,7 +38,9 @@ module.exports = (sequelize, DataTypes) => {
         }
       },
       image: DataTypes.TEXT,
-      price: DataTypes.STRING
+      price: DataTypes.STRING,
+      selected: DataTypes.STRING,
+      totalPoints: DataTypes.STRING
     },
     {
       sequelize,

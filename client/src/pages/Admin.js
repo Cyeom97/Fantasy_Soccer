@@ -25,7 +25,9 @@ const Admin = ({ user, authenticated }) => {
     totalCleansheets: '',
     clubId: '',
     image: '',
-    price: ''
+    price: '',
+    selected: '',
+    totalPoints: ''
   })
 
   useEffect(() => {
@@ -68,7 +70,9 @@ const Admin = ({ user, authenticated }) => {
       totalCleansheets: '',
       clubId: '',
       image: '',
-      price: ''
+      price: '',
+      selected: '',
+      totalPoints: ''
     })
   }
 
@@ -188,8 +192,19 @@ const Admin = ({ user, authenticated }) => {
         <label htmlFor="price"> price: </label>
         <input
           id="price"
-          type="number"
           value={playerForm.price}
+          onChange={playerChange}
+        ></input>
+        <label htmlFor="selected"> Selected: </label>
+        <input
+          id="selected"
+          value={playerForm.selected}
+          onChange={playerChange}
+        ></input>
+        <label htmlFor="totalPoints"> totalPoints: </label>
+        <input
+          id="totalPoints"
+          value={playerForm.totalPoints}
           onChange={playerChange}
         ></input>
         <label htmlFor="image"> image: </label>
@@ -200,8 +215,8 @@ const Admin = ({ user, authenticated }) => {
         ></input>
         <button type="submit">Add Player</button>
       </form>
+      <h2>All Players</h2>
       <section className="playerList">
-        <h2>All Players</h2>
         {players?.map((player) =>
           player.position === 'Defender' || player.position === 'Goalie' ? (
             <div key={player.id}>
@@ -217,7 +232,9 @@ const Admin = ({ user, authenticated }) => {
               </div>
               <div>Club ID: {player.clubId}</div>
               <div>Price: ${player.price}</div>
-              <img src={player.image}></img>
+              <div>Selected: {player.selected}%</div>
+              <div>Total Points: {player.totalPoints}</div>
+              <img src={player.image} alt="player"></img>
             </div>
           ) : (
             <div>
@@ -229,7 +246,9 @@ const Admin = ({ user, authenticated }) => {
               <div>Total Assists Last Season: {player.name}</div>
               <div>Club ID: {player.clubId}</div>
               <div>Price: ${player.price}</div>
-              <img src={player.image}></img>
+              <div>Selected: {player.selected}%</div>
+              <div>Total Points: {player.totalPoints}</div>
+              <img src={player.image} alt="player"></img>
             </div>
           )
         )}

@@ -71,7 +71,7 @@ const UpdateTeam = async (req, res) => {
   }
 }
 
-const DeleteUserPlayer = async (req, res) => {
+const UpdateUserPlayer = async (req, res) => {
   try {
     const { userId } = req.body
     const { playerId } = req.body
@@ -94,5 +94,5 @@ module.exports = {
   findAUserPlayer,
   findAllUserPlayers,
   UpdateTeam,
-  DeleteUserPlayer
+  UpdateUserPlayer
 }

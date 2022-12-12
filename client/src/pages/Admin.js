@@ -14,6 +14,19 @@ const Admin = ({ user, authenticated }) => {
     points: '',
     image: ''
   })
+  const [playerForm, setPlayerForm] = useState({
+    name: '',
+    position: '',
+    currentGoals: '',
+    currentAssists: '',
+    currentCleansheet: '',
+    statGoals: '',
+    statAssists: '',
+    totalCleansheets: '',
+    clubId: '',
+    image: '',
+    price: ''
+  })
 
   useEffect(() => {
     const handleAdmin = async () => {
@@ -29,11 +42,34 @@ const Admin = ({ user, authenticated }) => {
     setTeamForm({ ...teamForm, [e.target.id]: e.target.value })
   }
 
+  const playerChange = (e) => {
+    setPlayerForm({ ...playerForm, [e.target.id]: e.target.value })
+  }
+
   const teamSubmit = async (e) => {
     e.preventDefault()
     let newTeam = await axios.post(`${BASE_URL}teams`, teamForm)
     setTeam([...teams, newTeam.data])
     setTeamForm({ name: '', schedule: '', scores: '', points: '', image: '' })
+  }
+
+  const playerSubmit = async (e) => {
+    e.preventDefault()
+    let newPlayer = await axios.post(`${BASE_URL}players`, playerForm)
+    setPlayerForm([...players, newPlayer.data])
+    setPlayerForm({
+      name: '',
+      position: '',
+      currentGoals: '',
+      currentAssists: '',
+      currentCleansheet: '',
+      statGoals: '',
+      statAssists: '',
+      totalCleansheets: '',
+      clubId: '',
+      image: '',
+      price: ''
+    })
   }
 
   const viewTeam = (id) => {
@@ -89,21 +125,37 @@ const Admin = ({ user, authenticated }) => {
       </section>
       <section className="playerList">
         <h2>All Players</h2>
-        {players?.map((player) => (
-          <div key={player.id}>
-            <h3>{player.name}</h3>
-            <div>Position: {player.position}</div>
-            <div>Goals: {player.currentGoals}</div>
-            <div>Assists: {player.currentAssists}</div>
-            <div>Cleansheets: {player.currentCleansheet}</div>
-            <div>Total Goals Last Season: {player.statGoals}</div>
-            <div>Total Assists Last Season: {player.name}</div>
-            <div>Total Cleansheets Last Season: {player.totalCleansheets}</div>
-            <div>Club ID: {player.clubId}</div>
-            <div>Price: ${player.price}</div>
-            <img src={player.image}></img>
-          </div>
-        ))}
+        {players?.map((player) =>
+          player.position === 'Defender' || player.position === 'Goalie' ? (
+            <div key={player.id}>
+              <h3>{player.name}</h3>
+              <div>Position: {player.position}</div>
+              <div>Goals: {player.currentGoals}</div>
+              <div>Assists: {player.currentAssists}</div>
+              <div>Cleansheets: {player.currentCleansheet}</div>
+              <div>Total Goals Last Season: {player.statGoals}</div>
+              <div>Total Assists Last Season: {player.name}</div>
+              <div>
+                Total Cleansheets Last Season: {player.totalCleansheets}
+              </div>
+              <div>Club ID: {player.clubId}</div>
+              <div>Price: ${player.price}</div>
+              <img src={player.image}></img>
+            </div>
+          ) : (
+            <div>
+              <h3>{player.name}</h3>
+              <div>Position: {player.position}</div>
+              <div>Goals: {player.currentGoals}</div>
+              <div>Assists: {player.currentAssists}</div>
+              <div>Total Goals Last Season: {player.statGoals}</div>
+              <div>Total Assists Last Season: {player.name}</div>
+              <div>Club ID: {player.clubId}</div>
+              <div>Price: ${player.price}</div>
+              <img src={player.image}></img>
+            </div>
+          )
+        )}
       </section>
     </div>
   ) : (

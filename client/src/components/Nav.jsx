@@ -10,9 +10,9 @@ const Nav = ({ authenticated, user, handleLogout }) => {
       <nav className="links">
         <h2 className='title'>Soccer Manager</h2>
         <Link to="/">Home</Link>
-        <Link to="/teams">Teams</Link>
         <Link to="/players">Players</Link>
         <Link to={`/pickteam/${user.id}`}>PickTeam</Link>
+        <Link to={`/transfers/${user.id}`}>Transfers</Link>
         <p className="back" onClick={() => navigate(-1)}>Back</p>
         <Link onClick={handleLogout} to="/">Sign Out</Link>
       </nav>

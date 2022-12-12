@@ -12,6 +12,7 @@ import AllPlayers from './pages/AllPlayers'
 import PickTeam from './pages/PickTeam'
 import Admin from './pages/Admin'
 import AdminTeam from './pages/AdminTeam'
+import Transfer from './pages/Transfer'
 import { CheckSession } from './services/Auth'
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
           <Route path="/teams/:id" element={<GetTeam />} />
           <Route path="/players" element={<AllPlayers />} />
           <Route path="/pickteam/:id" element={<PickTeam />} />
+          <Route path="/transfers/:id" element={<Transfer />} />
           <Route
             path="/signin"
             element={

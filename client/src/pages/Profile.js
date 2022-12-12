@@ -9,29 +9,32 @@ const Profile = ({ user, authenticated }) => {
   // const [team, setTeam] = useState([])
   const [myPlayers, setMyPlayers] = useState([])
   const [form, setForm] = useState({
-    ownerId: id,
-    playerId: ''
+    userId: parseInt(id),
+    playerId: 0
   })
 
   useEffect(() => {
     const handleUser = async () => {
       let getPlayers = await axios.get(`${BASE_URL}players`)
-      let user = await axios.get(`${BASE_URL}users/${id}`)
       setPlayers(getPlayers.data)
-      setMyPlayers(user.data)
     }
     handleUser()
-  }, [id])
+    const getUserPlayer = async () => {
+      let user = await axios.get(`${BASE_URL}users/${id}`)
+      setMyPlayers(user.data)
+    }
+    getUserPlayer()
+  }, [form])
 
   const playerChange = (e) => {
-    setForm({ ...form, [e.target.id]: e.target.value })
+    setForm({ ...form, [e.target.id]: parseInt(e.target.value) })
   }
 
   const playerAdd = async (e) => {
     e.preventDefault()
     let newPlayer = await axios.post(`${BASE_URL}users`, form)
-    setForm([...myPlayers, newPlayer.data])
-    setForm({ ownerId: id, playerId: '' })
+    console.log(newPlayer)
+    setForm({ userId: id, playerId: 0 })
   }
 
   return user && authenticated ? (
@@ -47,10 +50,15 @@ const Profile = ({ user, authenticated }) => {
         ))}
       </section>
       <h1>Create team</h1>
-      <form onSubmit={playerAdd}>
+      <form>
         <label htmlFor="playerId">Player ID: </label>
-        <input id="id" value={form.playerId} onChange={playerChange}></input>
-        <button type="submit">Add Player</button>
+        <select id="playerId" onChange={playerChange}>
+          <option>Select Player</option>
+          {players?.map((player) => (
+            <option value={player.id}>{player.name}</option>
+          ))}
+        </select>
+        <button onClick={playerAdd}>Add Player</button>
       </form>
       <h1>Choose a playerId from this list</h1>
       <section className="playerList">

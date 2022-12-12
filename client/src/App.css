@@ -204,7 +204,10 @@ img{
 
 .defenders{
   display: flex;
-  justify-content: space-around;
+}
+
+.def{
+  flex: 1;
 }
 
 .midfielders{

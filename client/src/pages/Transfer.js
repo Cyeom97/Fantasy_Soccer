@@ -4,9 +4,14 @@ import axios from 'axios'
 import { BASE_URL } from '../services/api'
 
 const Transfer = () => {
+  let { id } = useParams()
   const [myPlayers, setMyPlayers] = useState([])
   const [allPlayers, setAllPlayers] = useState([])
-  let { id } = useParams()
+  const [form, setForm] = useState({
+    userId: parseInt(id),
+    playerId: 0,
+    newPlayerId: 0
+  })
 
   useEffect(() => {
     const apiCall = async () => {
@@ -19,7 +24,18 @@ const Transfer = () => {
       setAllPlayers(playerResponse.data)
     }
     playerList()
-  }, [])
+  }, [form])
+
+  const playerChange = (e) => {
+    setForm({ ...form, [e.target.id]: parseInt(e.target.value) })
+  }
+
+  const playerTransfer = async (e) => {
+    e.preventDefault()
+    let trade = await axios.put(`${BASE_URL}userplayers`, form)
+    console.log(trade)
+    setForm({ userId: id, playerId: 0, newPlayerId: 0 })
+  }
 
   return (
     <div>
@@ -80,13 +96,29 @@ const Transfer = () => {
           </div>
         </div>
       </div>
-      <section>
-        {allPlayers.map((footy) => (
-          <div>
-            <div>{footy.name}</div>
-          </div>
-        ))}
-      </section>
+      <form>
+        <label htmlFor="currentPlayer"> Transfer Out: </label>
+        <select id="playerId" onChange={playerChange}>
+          <option>Select Player</option>
+          {myPlayers.owner?.map((footy) => (
+            <option value={footy.id}>
+              {footy.name} {footy.position}
+            </option>
+          ))}
+        </select>
+        <label htmlFor="newPlayer"> Transfer In: </label>
+        <select id="newPlayerId" onChange={playerChange}>
+          <option>Select Player</option>
+          {allPlayers?.map((player) =>
+            player.name !== myPlayers.owner.name ? (
+              <option value={player.id}>
+                {player.name} {player.position}
+              </option>
+            ) : null
+          )}
+        </select>
+        <button onClick={playerTransfer}>Transfer</button>
+      </form>
     </div>
   )
 }

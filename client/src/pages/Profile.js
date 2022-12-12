@@ -33,7 +33,6 @@ const Profile = ({ user, authenticated }) => {
   const playerAdd = async (e) => {
     e.preventDefault()
     let newPlayer = await axios.post(`${BASE_URL}users`, form)
-    console.log(newPlayer)
     setForm({ userId: id, playerId: 0 })
   }
 
@@ -51,6 +50,7 @@ const Profile = ({ user, authenticated }) => {
       </section>
       <h1>Create team</h1>
       <form>
+        {console.log(myPlayers.owner)}
         <label htmlFor="playerId">Player ID: </label>
         <select id="playerId" onChange={playerChange}>
           <option>Select Player</option>

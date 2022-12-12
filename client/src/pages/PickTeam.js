@@ -1,4 +1,20 @@
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
+import { BASE_URL } from '../services/api'
+
 const PickTeam = () => {
+  const [myPlayers, setMyPlayers] = useState([])
+  let { id } = useParams()
+
+  useEffect(() => {
+    const apiCall = async () => {
+      let response = await axios.get(`${BASE_URL}users/${id}`)
+      setMyPlayers(response.data)
+    }
+    apiCall()
+  }, [])
+
   return (
     <div>
       <div className="pitch">
@@ -12,25 +28,49 @@ const PickTeam = () => {
             {/* <!-- the top right corner --> */}
           </span>
           <div className="goalBox">{/* <!-- the goal box goes here --> */}</div>
-          <div className="goalie">
-            <h2 className="goal">Goalie</h2>
-          </div>
-          <div className="defenders">
-            <h2 className="def">Def</h2>
-            <h2 className="def">Def</h2>
-            <h2 className="def">Def</h2>
-            <h2 className="def">Def</h2>
-          </div>
-          <div className="midfielders">
-            <h2 className="mid">Mid</h2>
-            <h2 className="mid">Mid</h2>
-            <h2 className="mid">Mid</h2>
-            <h2 className="mid">Mid</h2>
-          </div>
-          <div className="forwards">
-            <h2 className="for">For</h2>
-            <h2 className="for">For</h2>
-          </div>
+          <section>
+            {myPlayers.owner?.map((player) =>
+              player.position === 'Goalie' ? (
+                <div key={player.id} className="goalie">
+                  <div>{player.name}</div>
+                </div>
+              ) : (
+                <div></div>
+              )
+            )}
+            {myPlayers.owner?.map((player) =>
+              player.position === 'Defender' ? (
+                <div key={player.id} className="defenders">
+                  <h2 className="def">{player.name}</h2>
+                </div>
+              ) : (
+                <div></div>
+              )
+            )}
+          </section>
+          <section>
+            {myPlayers.owner?.map((player) =>
+              player.position === 'Midfielder' ? (
+                <div key={player.id} className="midfielders">
+                  <h2 className="mid">{player.name}</h2>
+                </div>
+              ) : (
+                <div></div>
+              )
+            )}
+          </section>
+          <section>
+            {myPlayers.owner?.map((player) =>
+              player.position === 'Forward' ? (
+                <div key={player.id} className="forwards">
+                  <h2 className="for">{player.name}</h2>
+                </div>
+              ) : (
+                <div></div>
+              )
+            )}
+          </section>
+
           <div className="half">
             {/* <!-- the half way point of the pitch is here --> */}
           </div>

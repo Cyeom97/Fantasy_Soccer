@@ -48,27 +48,33 @@ const Profile = ({ user, authenticated }) => {
           </div>
         ))}
       </section>
-      <h1>Create team</h1>
-      <form>
-        {console.log(myPlayers.owner)}
-        <label htmlFor="playerId">Player ID: </label>
-        <select id="playerId" onChange={playerChange}>
-          <option>Select Player</option>
-          {players?.map((player) => (
-            <option value={player.id}>{player.name}</option>
-          ))}
-        </select>
-        <button onClick={playerAdd}>Add Player</button>
-      </form>
-      <h1>Choose a playerId from this list</h1>
-      <section className="playerList">
-        {players?.map((player) => (
-          <div key={player.id}>
-            <div>{player.name}</div>
-            <div>{player.id}</div>
-          </div>
-        ))}
-      </section>
+      {myPlayers.owner.length < 15 ? (
+        <div>
+          <h1>Create team</h1>
+          <form>
+            {console.log(myPlayers.owner.length)}
+            <label htmlFor="playerId">Player ID: </label>
+            <select id="playerId" onChange={playerChange}>
+              <option>Select Player</option>
+              {players?.map((player) => (
+                <option value={player.id}>{player.name}</option>
+              ))}
+            </select>
+            <button onClick={playerAdd}>Add Player</button>
+          </form>
+          <h1>Choose a playerId from this list</h1>
+          <section className="playerList">
+            {players?.map((player) => (
+              <div key={player.id}>
+                <div>{player.name}</div>
+                <div>{player.id}</div>
+              </div>
+            ))}
+          </section>
+        </div>
+      ) : (
+        <div></div>
+      )}
     </div>
   ) : (
     <div>

@@ -123,6 +123,83 @@ const Admin = ({ user, authenticated }) => {
           </div>
         ))}
       </section>
+      <form onSubmit={playerSubmit}>
+        <label htmlFor="name"> Name: </label>
+        <input
+          id="name"
+          value={playerForm.name}
+          onChange={playerChange}
+        ></input>
+        <label htmlFor="position"> Position: </label>
+        <input
+          id="position"
+          value={playerForm.position}
+          onChange={playerChange}
+        ></input>
+        <label htmlFor="currentGoals"> currentGoals: </label>
+        <input
+          id="currentGoals"
+          type="number"
+          value={playerForm.currentGoals}
+          onChange={playerChange}
+        ></input>
+        <label htmlFor="currentAssists"> currentAssists: </label>
+        <input
+          id="currentAssists"
+          type="number"
+          value={playerForm.currentAssists}
+          onChange={playerChange}
+        ></input>
+        <label htmlFor="currentCleansheet"> currentCleansheet: </label>
+        <input
+          id="currentCleansheet"
+          type="number"
+          value={playerForm.currentCleansheet}
+          onChange={playerChange}
+        ></input>
+        <label htmlFor="statGoals"> statGoals: </label>
+        <input
+          id="statGoals"
+          type="number"
+          value={playerForm.statGoals}
+          onChange={playerChange}
+        ></input>
+        <label htmlFor="statAssists"> statAssists: </label>
+        <input
+          id="statAssists"
+          type="number"
+          value={playerForm.statAssists}
+          onChange={playerChange}
+        ></input>
+        <label htmlFor="totalCleansheets"> totalCleansheets: </label>
+        <input
+          id="totalCleansheets"
+          type="number"
+          value={playerForm.totalCleansheets}
+          onChange={playerChange}
+        ></input>
+        <label htmlFor="clubId"> clubId: </label>
+        <input
+          id="clubId"
+          type="number"
+          value={playerForm.clubId}
+          onChange={playerChange}
+        ></input>
+        <label htmlFor="price"> price: </label>
+        <input
+          id="price"
+          type="number"
+          value={playerForm.price}
+          onChange={playerChange}
+        ></input>
+        <label htmlFor="image"> image: </label>
+        <input
+          id="image"
+          value={playerForm.image}
+          onChange={playerChange}
+        ></input>
+        <button type="submit">Add Player</button>
+      </form>
       <section className="playerList">
         <h2>All Players</h2>
         {players?.map((player) =>
@@ -134,7 +211,7 @@ const Admin = ({ user, authenticated }) => {
               <div>Assists: {player.currentAssists}</div>
               <div>Cleansheets: {player.currentCleansheet}</div>
               <div>Total Goals Last Season: {player.statGoals}</div>
-              <div>Total Assists Last Season: {player.name}</div>
+              <div>Total Assists Last Season: {player.statAssists}</div>
               <div>
                 Total Cleansheets Last Season: {player.totalCleansheets}
               </div>

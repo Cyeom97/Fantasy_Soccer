@@ -87,6 +87,24 @@ const Admin = ({ user, authenticated }) => {
           </div>
         ))}
       </section>
+      <section className="playerList">
+        <h2>All Players</h2>
+        {players?.map((player) => (
+          <div key={player.id}>
+            <h3>{player.name}</h3>
+            <div>Position: {player.position}</div>
+            <div>Goals: {player.currentGoals}</div>
+            <div>Assists: {player.currentAssists}</div>
+            <div>Cleansheets: {player.currentCleansheet}</div>
+            <div>Total Goals Last Season: {player.statGoals}</div>
+            <div>Total Assists Last Season: {player.name}</div>
+            <div>Total Cleansheets Last Season: {player.totalCleansheets}</div>
+            <div>Club ID: {player.clubId}</div>
+            <div>Price: ${player.price}</div>
+            <img src={player.image}></img>
+          </div>
+        ))}
+      </section>
     </div>
   ) : (
     <div></div>

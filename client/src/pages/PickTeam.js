@@ -28,19 +28,21 @@ const PickTeam = () => {
             {/* <!-- the top right corner --> */}
           </span>
           <div className="goalBox">{/* <!-- the goal box goes here --> */}</div>
-          <section>
+          <section className="goalie">
             {myPlayers.owner?.map((player) =>
               player.position === 'Goalie' ? (
-                <div key={player.id} className="goalie">
+                <div key={player.id}>
                   <div>{player.name}</div>
                 </div>
               ) : (
                 <div></div>
               )
             )}
+          </section>
+          <section className="defenders">
             {myPlayers.owner?.map((player) =>
               player.position === 'Defender' ? (
-                <div key={player.id} className="defenders">
+                <div key={player.id}>
                   <h2 className="def">{player.name}</h2>
                 </div>
               ) : (
@@ -48,26 +50,22 @@ const PickTeam = () => {
               )
             )}
           </section>
-          <section>
+          <section className="midfielders">
             {myPlayers.owner?.map((player) =>
               player.position === 'Midfielder' ? (
-                <div key={player.id} className="midfielders">
+                <div key={player.id}>
                   <h2 className="mid">{player.name}</h2>
                 </div>
-              ) : (
-                <div></div>
-              )
+              ) : null
             )}
           </section>
-          <section>
+          <section className="forwards">
             {myPlayers.owner?.map((player) =>
               player.position === 'Forward' ? (
-                <div key={player.id} className="forwards">
+                <div key={player.id}>
                   <h2 className="for">{player.name}</h2>
                 </div>
-              ) : (
-                <div></div>
-              )
+              ) : null
             )}
           </section>
 

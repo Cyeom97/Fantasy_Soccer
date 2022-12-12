@@ -5,6 +5,7 @@ const AuthRouter = require('./routes/AuthRouter')
 const PlayersRouter = require('./routes/PlayersRouter')
 const TeamRouter = require('./routes/TeamsRouter')
 const UserRouter = require('./routes/UsersRouter')
+const UserPlayersRouter = require('./routes/UserPlayersRouter')
 
 const app = express()
 
@@ -20,5 +21,6 @@ app.use('/auth', AuthRouter)
 app.use('/players', PlayersRouter)
 app.use('/teams', TeamRouter)
 app.use('/users', UserRouter)
+app.use('/userplayers', UserPlayersRouter)
 
 app.listen(PORT, () => console.log(`Server Running on Port: ${PORT}`))

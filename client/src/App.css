@@ -204,11 +204,11 @@ img{
 
 .defenders{
   display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
 }
 
-.def{
-  flex: 1;
-}
+
 
 .midfielders{
   display: flex;
@@ -233,4 +233,8 @@ img{
 .playerList{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.empty{
+  max-width: 1px; 
 }

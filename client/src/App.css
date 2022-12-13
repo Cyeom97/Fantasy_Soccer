@@ -86,7 +86,7 @@ header{
 	height: 100%;
 }
 
-.lableSign{
+.labelSign{
   color: #fff;
 	font-size: 2.3em;
 	justify-content: center;
@@ -108,6 +108,13 @@ header{
 	border: none;
 	outline: none;
 	border-radius: 5px;
+}
+
+.link{
+  text-decoration: none;
+  color: white;
+  display: flex;
+  justify-content: center;
 }
 
 img{
@@ -142,7 +149,7 @@ img{
   height: 460px;
 	background: #eee;
 	border-radius: 60% / 10%;
-	transform: translateY(-50px);
+	transform: translateY(-180px);
 	transition: .8s ease-in-out;
 }
 

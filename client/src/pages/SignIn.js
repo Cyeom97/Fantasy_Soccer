@@ -42,8 +42,11 @@ const SignIn = (props) => {
         <div className="signup">
           <form className="col" onSubmit={handleSubmit}>
             <label htmlFor="chk" aria-hidden="true" className="labelSign">
-              Sign in or <Link to="/Register">create an account</Link>
+              Sign in
             </label>
+            <Link className="link" to="/Register">
+              Or create an account
+            </Link>
             <input
               className="inputs"
               onChange={handleChange}

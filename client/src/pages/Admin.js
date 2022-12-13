@@ -47,6 +47,9 @@ const Admin = ({ user, authenticated }) => {
   const playerChange = (e) => {
     setPlayerForm({ ...playerForm, [e.target.id]: e.target.value })
   }
+  const playerUpdate = (e) => {
+    setUpdateForm({ ...updateForm, [e.target.id]: e.target.value })
+  }
 
   const teamSubmit = async (e) => {
     e.preventDefault()

@@ -47,9 +47,6 @@ const Admin = ({ user, authenticated }) => {
   const playerChange = (e) => {
     setPlayerForm({ ...playerForm, [e.target.id]: e.target.value })
   }
-  const playerUpdate = (e) => {
-    setUpdateForm({ ...updateForm, [e.target.id]: e.target.value })
-  }
 
   const teamSubmit = async (e) => {
     e.preventDefault()
@@ -241,7 +238,13 @@ const Admin = ({ user, authenticated }) => {
               <div>Price: ${player.price}</div>
               <div>Selected: {player.selected}%</div>
               <div>Total Points: {player.totalPoints}</div>
-              <img src={player.image} alt="player"></img>
+              <img
+                src={player.image}
+                alt="player"
+                onClick={() => {
+                  viewPlayer(player.id)
+                }}
+              ></img>
             </div>
           ) : (
             <div>
@@ -255,7 +258,13 @@ const Admin = ({ user, authenticated }) => {
               <div>Price: ${player.price}</div>
               <div>Selected: {player.selected}%</div>
               <div>Total Points: {player.totalPoints}</div>
-              <img src={player.image} alt="player"></img>
+              <img
+                src={player.image}
+                alt="player"
+                onClick={() => {
+                  viewPlayer(player.id)
+                }}
+              ></img>
             </div>
           )
         )}

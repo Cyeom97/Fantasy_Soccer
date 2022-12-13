@@ -12,6 +12,7 @@ const Transfer = () => {
     playerId: 0,
     newPlayerId: 0
   })
+  let playerBudget = 0
 
   useEffect(() => {
     const apiCall = async () => {
@@ -37,8 +38,22 @@ const Transfer = () => {
     setForm({ userId: id, playerId: 0, newPlayerId: 0 })
   }
 
+  const getPlayerBudget = () => {
+    myPlayers.owner.map((cash) => {
+      playerBudget += parseInt(cash.price)
+    })
+  }
+  getPlayerBudget()
+
+  let spending = myPlayers.money - playerBudget
+
   return (
     <div>
+      <h1>Transfers</h1>
+      <h2>
+        Budget: $
+        {myPlayers?.money === null ? myPlayers.money === 100 : spending}M Left
+      </h2>
       <div className="pitch">
         {/* <!-- the grass is green here --> */}
         <div className="lines">
@@ -49,12 +64,12 @@ const Transfer = () => {
           <span className="corner corner-top-right">
             {/* <!-- the top right corner --> */}
           </span>
-          <div className="goalBox">{/* <!-- the goal box goes here --> */}</div>
+          <div className="goalBox"></div>
           <section className="goalie">
             {myPlayers.owner?.map((player) =>
               player.position === 'Goalie' ? (
                 <div key={player.id}>
-                  <div>{player.name}</div>
+                  <h2 className="goal">{player.name}</h2>
                 </div>
               ) : (
                 <div></div>
@@ -67,9 +82,7 @@ const Transfer = () => {
                 <div key={player.id}>
                   <h2 className="def">{player.name}</h2>
                 </div>
-              ) : (
-                <div></div>
-              )
+              ) : null
             )}
           </section>
           <section className="midfielders">
@@ -110,9 +123,10 @@ const Transfer = () => {
         <select id="newPlayerId" onChange={playerChange}>
           <option>Select Player</option>
           {allPlayers?.map((player) =>
-            player.name !== myPlayers.owner.name ? (
+            player.price <= spending ? (
               <option value={player.id}>
-                {player.name} {player.position}
+                {player.name} {player.position} ${player.price}{' '}
+                {player.selected}% {player.totalPoints}pts
               </option>
             ) : null
           )}

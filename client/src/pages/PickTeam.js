@@ -17,6 +17,7 @@ const PickTeam = () => {
 
   return (
     <div>
+      <h1>Pick Team</h1>
       <div className="pitch">
         {/* <!-- the grass is green here --> */}
         <div className="lines">
@@ -32,7 +33,7 @@ const PickTeam = () => {
             {myPlayers.owner?.map((player) =>
               player.position === 'Goalie' ? (
                 <div key={player.id}>
-                  <div>{player.name}</div>
+                  <h4 className="goal">{player.name}</h4>
                 </div>
               ) : (
                 <div></div>
@@ -43,18 +44,16 @@ const PickTeam = () => {
             {myPlayers.owner?.map((player) =>
               player.position === 'Defender' ? (
                 <div key={player.id}>
-                  <h2 className="def">{player.name}</h2>
+                  <h4 className="def">{player.name}</h4>
                 </div>
-              ) : (
-                <div></div>
-              )
+              ) : null
             )}
           </section>
           <section className="midfielders">
             {myPlayers.owner?.map((player) =>
               player.position === 'Midfielder' ? (
                 <div key={player.id}>
-                  <h2 className="mid">{player.name}</h2>
+                  <h4 className="mid">{player.name}</h4>
                 </div>
               ) : null
             )}
@@ -63,7 +62,7 @@ const PickTeam = () => {
             {myPlayers.owner?.map((player) =>
               player.position === 'Forward' ? (
                 <div key={player.id}>
-                  <h2 className="for">{player.name}</h2>
+                  <h4 className="for">{player.name}</h4>
                 </div>
               ) : null
             )}

@@ -48,7 +48,7 @@ const Profile = ({ user, authenticated }) => {
           </div>
         ))}
       </section>
-      {myPlayers.owner.length < 15 ? (
+      {myPlayers.owner?.length < 15 ? (
         <div>
           <h1>Create team</h1>
           <form>

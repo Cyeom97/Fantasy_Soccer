@@ -39,15 +39,62 @@ const Profile = ({ user, authenticated }) => {
   return user && authenticated ? (
     <div>
       <h1>My Team</h1>
-      <section className="playerList">
-        {myPlayers.owner?.map((player) => (
-          <div key={player.name}>
-            <h2>{player.name}</h2>
-            <h3>{player.position}</h3>
-            <h3>${player.price}</h3>
+
+      <div className="pitch">
+        {/* <!-- the grass is green here --> */}
+        <div className="lines">
+          {/* <!-- the outside lines of the pitch --> */}
+          <span className="corner corner-top-left">
+            {/* <!-- the top left corner --> */}
+          </span>
+          <span className="corner corner-top-right">
+            {/* <!-- the top right corner --> */}
+          </span>
+          <div className="goalBox">{/* <!-- the goal box goes here --> */}</div>
+          <section className="goalie">
+            {myPlayers.owner?.map((player) =>
+              player.position === 'Goalie' ? (
+                <div key={player.id}>
+                  <h4 className="goal">{player.name}</h4>
+                </div>
+              ) : (
+                <div></div>
+              )
+            )}
+          </section>
+          <section className="defenders">
+            {myPlayers.owner?.map((player) =>
+              player.position === 'Defender' ? (
+                <div key={player.id}>
+                  <h4 className="def">{player.name}</h4>
+                </div>
+              ) : null
+            )}
+          </section>
+          <section className="midfielders">
+            {myPlayers.owner?.map((player) =>
+              player.position === 'Midfielder' ? (
+                <div key={player.id}>
+                  <h4 className="mid">{player.name}</h4>
+                </div>
+              ) : null
+            )}
+          </section>
+          <section className="forwards">
+            {myPlayers.owner?.map((player) =>
+              player.position === 'Forward' ? (
+                <div key={player.id}>
+                  <h4 className="for">{player.name}</h4>
+                </div>
+              ) : null
+            )}
+          </section>
+
+          <div className="half">
+            {/* <!-- the half way point of the pitch is here --> */}
           </div>
-        ))}
-      </section>
+        </div>
+      </div>
       {myPlayers.owner?.length < 15 ? (
         <div>
           <h1>Create team</h1>

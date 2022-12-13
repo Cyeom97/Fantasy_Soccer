@@ -22,4 +22,20 @@ const AdminPlayer = () => {
     selected: '',
     totalPoints: ''
   })
+
+  useEffect(() => {
+    const apiCall = async () => {
+      let response = await axios.get(`${BASE_URL}players`)
+      setAllPlayers(response.data)
+    }
+    apiCall()
+  }, [])
+
+  return (
+    <div>
+      <h1>Hi</h1>
+    </div>
+  )
 }
+
+export default AdminPlayer

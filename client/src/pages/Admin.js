@@ -83,6 +83,10 @@ const Admin = ({ user, authenticated }) => {
     navigate(`team/${id}`)
   }
 
+  const viewPlayer = (id) => {
+    navigate(`player/${id}`)
+  }
+
   return user.email === 'chrisyeom@gmail.com' && authenticated ? (
     <div>
       <h1>All Teams</h1>

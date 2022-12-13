@@ -13,6 +13,7 @@ import PickTeam from './pages/PickTeam'
 import Admin from './pages/Admin'
 import AdminTeam from './pages/AdminTeam'
 import Transfer from './pages/Transfer'
+import AdminPlayer from './pages/AdminPlayer'
 import { CheckSession } from './services/Auth'
 
 function App() {
@@ -75,6 +76,10 @@ function App() {
           <Route
             path="/admin/:id/team/:id"
             element={<AdminTeam user={user} authenticated={authenticated} />}
+          />
+          <Route
+            path="/admin/:id/player/:id"
+            element={<AdminPlayer user={user} authenticated={authenticated} />}
           />
         </Routes>
       </main>

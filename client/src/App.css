@@ -45,6 +45,11 @@ header{
   display: block;
 }
 
+.logo {
+  width: 100px;
+  height: 100px;
+}
+
 .title{
   text-align: right;
   float: right;
@@ -57,6 +62,8 @@ img{
   max-height: 300px;
 }
 
+
+
 .pitch {
   background: repeating-linear-gradient(
 		rgba(255, 255, 255, 0.05),
@@ -64,28 +71,21 @@ img{
 		transparent 20%,
 		transparent 40%
 	);
-	max-width: 100%;
-	height: 35rem;
+  width: 100%;
+	height: 100%;
 	padding: 1.5rem;
 	padding-bottom: 0;
 	display: flex;
   justify-content: center;
-  transform: translateX(-50%);
-  margin-top: 60px;
-  margin-left: 500px;
-}
-.pitch::before {
-  content: "";
-  height: 25%;
-  width: 100%;
-  z-index: 1;
+  min-height: 100vh;
+  position: relative;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   
-  filter: progid:DXImageTransform.Microsoft.gradient(
-      startColorstr="#003aaa35",
-      endColorstr="#3aaa35",
-      GradientType=0
-    ); 
 }
+
 .lines {
   border: 0.1875rem solid rgba(255, 255, 255, 0.3);
   background-color: #3aaa35; 
@@ -121,6 +121,7 @@ img{
   width: 11.87rem;
   height: 5.5rem;
   position: relative;
+  
 }
 
 .goalBox::before {
@@ -209,7 +210,7 @@ img{
   margin: 30px auto 15px auto;
 }
 
-.teamList{
+.teams{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   row-gap: 20px;
@@ -228,4 +229,74 @@ img{
 
 .def{
   margin-right: 20px;
+}
+
+.playerImage{
+  width: 100px;
+  height: 100px;
+  display: flex;
+  margin: auto;
+  z-index: 2
+}
+.box {
+  
+ 
+  margin: auto;
+}
+
+.box select  {
+  background-color: #0563af;
+  color: white;
+  padding: 12px;
+  width: 250px;
+  border: none;
+  font-size: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+
+.box label {
+  background-color: #143855;
+  color: white;
+  padding: 12px;
+  width: 100px;
+  border: none;
+  font-size: 20px;
+  margin: 10px;
+}
+
+.box::before {
+  position: absolute;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 45px;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.box:hover::before {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.box select option {
+  padding: 30px;
+}
+
+select {
+  margin: auto;
+}
+
+.button {
+  background-color: #223e55;
+  color: white;
+  padding: 12px;
+  width: 250px;
+  border: none;
+  margin: 10px;
 }

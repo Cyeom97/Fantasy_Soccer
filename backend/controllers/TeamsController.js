@@ -26,7 +26,9 @@ const GetOneTeam = async (req, res) => {
     let teamId = parseInt(req.params.id)
     const team = await Team.findOne({
       where: { id: teamId },
-      include: [{ model: Player, as: 'owns', attributes: ['name', 'position'] }]
+      include: [
+        { model: Player, as: 'owns', attributes: ['name', 'position', 'image'] }
+      ]
     })
     res.send(team)
   } catch (error) {

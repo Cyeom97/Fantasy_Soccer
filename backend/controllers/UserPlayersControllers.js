@@ -9,7 +9,14 @@ const GetPlayersByUser = async (req, res) => {
         {
           model: Player,
           as: 'owner',
-          attributes: ['id', 'name', 'position', 'price', 'totalPoints']
+          attributes: [
+            'id',
+            'name',
+            'position',
+            'price',
+            'totalPoints',
+            'image'
+          ]
         }
       ]
     })

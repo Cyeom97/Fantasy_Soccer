@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom'
+import logo from '../logo/logo-transparent-png.png'
 
 
 
@@ -8,7 +9,7 @@ const Nav = ({ authenticated, user, handleLogout }) => {
   if (user) {
     authenticatedOptions = (
       <nav className="links">
-        <h2 className='title'>Soccer Manager</h2>
+        <img className='logo' src={logo} alt="logo"/>
         <Link to="/">Home</Link>
         <Link to="/players">Players</Link>
         <Link to={`/transfers/${user.id}`}>Transfers</Link>
@@ -20,7 +21,7 @@ const Nav = ({ authenticated, user, handleLogout }) => {
 
   const publicOptions = (
     <nav className="links">
-      <h2 className='title'>Soccer Manager</h2>
+      <img className='logo' src={logo} alt="logo"/>
       <Link to="/">Home</Link>
       <Link to="teams">Teams</Link>
       <Link to="/players">Players</Link>

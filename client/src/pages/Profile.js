@@ -45,7 +45,7 @@ const Profile = ({ user, authenticated }) => {
   addPoints()
 
   return user && authenticated ? (
-    <div>
+    <div className="body">
       <h1>My Team</h1>
       <h2>My Points: {myPoints}</h2>
       <div className="pitch">
@@ -63,17 +63,17 @@ const Profile = ({ user, authenticated }) => {
             {myPlayers.owner?.map((player) =>
               player.position === 'Goalie' ? (
                 <div key={player.id}>
+                  <img className="playerImage" src={player.image}></img>
                   <h4 className="goal">{player.name}</h4>
                 </div>
-              ) : (
-                <div></div>
-              )
+              ) : null
             )}
           </section>
           <section className="defenders">
             {myPlayers.owner?.map((player) =>
               player.position === 'Defender' ? (
                 <div key={player.id}>
+                  <img className="playerImage" src={player.image}></img>
                   <h4 className="def">{player.name}</h4>
                 </div>
               ) : null
@@ -83,6 +83,7 @@ const Profile = ({ user, authenticated }) => {
             {myPlayers.owner?.map((player) =>
               player.position === 'Midfielder' ? (
                 <div key={player.id}>
+                  <img className="playerImage" src={player.image}></img>
                   <h4 className="mid">{player.name}</h4>
                 </div>
               ) : null
@@ -92,6 +93,7 @@ const Profile = ({ user, authenticated }) => {
             {myPlayers.owner?.map((player) =>
               player.position === 'Forward' ? (
                 <div key={player.id}>
+                  <img className="playerImage" src={player.image}></img>
                   <h4 className="for">{player.name}</h4>
                 </div>
               ) : null
@@ -107,12 +109,13 @@ const Profile = ({ user, authenticated }) => {
         <div>
           <h1>Create team</h1>
           <form>
-            {console.log(myPlayers.owner.length)}
             <label htmlFor="playerId">Player ID: </label>
             <select id="playerId" onChange={playerChange}>
               <option>Select Player</option>
               {players?.map((player) => (
-                <option value={player.id}>{player.name}</option>
+                <option value={player.id}>
+                  {player.name} {player.position}
+                </option>
               ))}
             </select>
             <button onClick={playerAdd}>Add Player</button>

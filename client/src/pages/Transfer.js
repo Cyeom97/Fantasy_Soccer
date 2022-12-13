@@ -13,6 +13,7 @@ const Transfer = () => {
     newPlayerId: 0
   })
   let playerBudget = 0
+  let ownerPlayers = []
 
   useEffect(() => {
     const apiCall = async () => {
@@ -45,6 +46,13 @@ const Transfer = () => {
   }
   getPlayerBudget()
 
+  const pushPlayers = () => {
+    myPlayers.owner?.map((grab) => {
+      ownerPlayers.push(grab.name)
+    })
+  }
+  pushPlayers()
+
   let spending = myPlayers.money - playerBudget
 
   return (
@@ -69,6 +77,7 @@ const Transfer = () => {
             {myPlayers.owner?.map((player) =>
               player.position === 'Goalie' ? (
                 <div key={player.id}>
+                  <img className="playerImage" src={player.image}></img>
                   <h2 className="goal">{player.name}</h2>
                 </div>
               ) : (
@@ -80,6 +89,7 @@ const Transfer = () => {
             {myPlayers.owner?.map((player) =>
               player.position === 'Defender' ? (
                 <div key={player.id}>
+                  <img className="playerImage" src={player.image}></img>
                   <h2 className="def">{player.name}</h2>
                 </div>
               ) : null
@@ -89,6 +99,7 @@ const Transfer = () => {
             {myPlayers.owner?.map((player) =>
               player.position === 'Midfielder' ? (
                 <div key={player.id}>
+                  <img className="playerImage" src={player.image}></img>
                   <h2 className="mid">{player.name}</h2>
                 </div>
               ) : null
@@ -98,6 +109,7 @@ const Transfer = () => {
             {myPlayers.owner?.map((player) =>
               player.position === 'Forward' ? (
                 <div key={player.id}>
+                  <img className="playerImage" src={player.image}></img>
                   <h2 className="for">{player.name}</h2>
                 </div>
               ) : null
@@ -109,7 +121,7 @@ const Transfer = () => {
           </div>
         </div>
       </div>
-      <form>
+      <form className="box">
         <label htmlFor="currentPlayer"> Transfer Out: </label>
         <select id="playerId" onChange={playerChange}>
           <option>Select Player</option>
@@ -123,7 +135,7 @@ const Transfer = () => {
         <select id="newPlayerId" onChange={playerChange}>
           <option>Select Player</option>
           {allPlayers?.map((player) =>
-            player.price <= spending ? (
+            player.price <= spending && player.name !== ownerPlayers ? (
               <option value={player.id}>
                 {player.name} {player.position} ${player.price}{' '}
                 {player.selected}% {player.totalPoints}pts
@@ -131,7 +143,9 @@ const Transfer = () => {
             ) : null
           )}
         </select>
-        <button onClick={playerTransfer}>Transfer</button>
+        <button className="button" onClick={playerTransfer}>
+          Transfer
+        </button>
       </form>
     </div>
   )

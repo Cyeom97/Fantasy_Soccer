@@ -39,14 +39,6 @@ const Home = () => {
           </div>
         ))}
       </section>
-      <section className="teams">
-        {players.map((player) => (
-          <div key={player.id}>
-            <h2>{player.name}</h2>
-            <img src={player.image} alt="player"></img>
-          </div>
-        ))}
-      </section>
     </div>
   )
 }

@@ -6,12 +6,13 @@ import { BASE_URL } from '../services/api'
 const Profile = ({ user, authenticated }) => {
   let { id } = useParams()
   const [players, setPlayers] = useState([])
-  // const [team, setTeam] = useState([])
   const [myPlayers, setMyPlayers] = useState([])
   const [form, setForm] = useState({
     userId: parseInt(id),
     playerId: 0
   })
+
+  let myPoints = 0
 
   useEffect(() => {
     const handleUser = async () => {
@@ -36,10 +37,17 @@ const Profile = ({ user, authenticated }) => {
     setForm({ userId: id, playerId: 0 })
   }
 
+  const addPoints = () => {
+    myPlayers.owner?.map((points) => {
+      myPoints += parseInt(points.totalPoints)
+    })
+  }
+  addPoints()
+
   return user && authenticated ? (
     <div>
       <h1>My Team</h1>
-
+      <h2>My Points: {myPoints}</h2>
       <div className="pitch">
         {/* <!-- the grass is green here --> */}
         <div className="lines">

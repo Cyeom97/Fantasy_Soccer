@@ -39,7 +39,7 @@ const Transfer = () => {
   }
 
   const getPlayerBudget = () => {
-    myPlayers.owner.map((cash) => {
+    myPlayers.owner?.map((cash) => {
       playerBudget += parseInt(cash.price)
     })
   }

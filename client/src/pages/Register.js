@@ -29,14 +29,15 @@ const Register = () => {
   }
 
   return (
-    <div className="signin col">
-      <div className="card-overlay centered">
-        <form className="col" onSubmit={handleSubmit}>
-          <h1>Hello</h1>
-          <p>Create your Fantasy-Soccer Account below</p>
+    <div className="body">
+      <div className="main">
+        <form onSubmit={handleSubmit}>
+          <label className="labelReg" htmlFor="chk" aria-hidden="true">
+            Create your Soccer Managet Account below
+          </label>
           <div className="input-wrapper">
             <input
-              className="email"
+              className="inputs"
               onChange={handleChange}
               name="email"
               type="email"
@@ -45,10 +46,9 @@ const Register = () => {
               required
             />
           </div>
-
           <div className="input-wrapper">
             <input
-              className="password"
+              className="inputs"
               onChange={handleChange}
               type="password"
               name="password"
@@ -59,7 +59,7 @@ const Register = () => {
           </div>
           <div className="input-wrapper Password">
             <input
-              className="confirmpassword"
+              className="inputs"
               onChange={handleChange}
               type="password"
               name="confirmPassword"
@@ -70,7 +70,7 @@ const Register = () => {
           </div>
           <div className="button1">
             <button
-              className="regButton"
+              className="loginB"
               disabled={
                 !formValues.email ||
                 (!formValues.password &&

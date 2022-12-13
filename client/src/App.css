@@ -4,6 +4,7 @@ html, body {
 }
 .body {
   margin: 0;
+  margin-top: -30px;
 	padding: 0;
 	display: flex;
 	justify-content: center;
@@ -15,7 +16,8 @@ html, body {
 
 header{
   height: 7em;
-  background-color: #22418f;
+  background-color: 
+  #573b8a;
   box-shadow: 4px 4px 60px rgba(0,0,0,.5); 
   margin-bottom: 30px;
 }
@@ -67,8 +69,9 @@ header{
 }
 
 .main{
-	width: 350px;
-	height: 500px;
+	width: 550px;
+	height: 650px;
+  margin-top: -30px;
 	background: red;
 	overflow: hidden;
 	background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover;
@@ -95,6 +98,16 @@ header{
 	font-weight: bold;
 	cursor: pointer;
 	transition: .5s ease-in-out;
+}
+
+.labelReg{
+  color: #fff;
+	font-size: 1.3em;
+	justify-content: center;
+	display: flex;
+	margin: 60px;
+	font-weight: bold;
+	cursor: pointer;
 }
 
 .inputs{
@@ -316,12 +329,20 @@ img{
   margin: 30px auto 15px auto;
 }
 
+.homepage{
+  display: grid;
+  justify-content: space-evenly;
+  background-color: #ccfeba;
+  margin-top: -30px;
+}
+
 .teams{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   row-gap: 20px;
+  column-gap: 100px;
   margin: 30px;
-  
+  font-family: 'Jost', sans-serif;
 }
 
 .playerList{
@@ -405,4 +426,8 @@ select {
   width: 250px;
   border: none;
   margin: 10px;
+}
+
+.back{
+  color: white;
 }

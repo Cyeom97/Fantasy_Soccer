@@ -36,55 +36,48 @@ const SignIn = (props) => {
   }
 
   return (
-    <body>
+    <div className="body">
       <div className="main">
-        <input type="checkbox" id="chk" aria-hidden="true" />
+        <input className="inputs" type="checkbox" id="chk" aria-hidden="true" />
         <div className="signup">
-          <label>
-            Hello Sign in to your FantasySoccer account or{' '}
-            <Link to="/Register">create an account</Link>
-          </label>
           <form className="col" onSubmit={handleSubmit}>
-            <div className="input-wrapper">
-              <input
-                className="email"
-                onChange={handleChange}
-                name="email"
-                type="email"
-                placeholder="example@example.com"
-                value={formValues.email}
-                required
-              />
-            </div>
-            <div className="input-wrapper">
-              <input
-                className="password"
-                onChange={handleChange}
-                type="password"
-                name="password"
-                placeholder="Password"
-                value={formValues.password}
-                required
-              />
-            </div>
-            <div className="button1">
-              <button
-                className="regButton"
-                disabled={!formValues.email || !formValues.password}
-              >
-                Sign In
-              </button>
-            </div>
+            <label htmlFor="chk" aria-hidden="true" className="labelSign">
+              Sign in or <Link to="/Register">create an account</Link>
+            </label>
+            <input
+              className="inputs"
+              onChange={handleChange}
+              name="email"
+              type="email"
+              placeholder="example@example.com"
+              value={formValues.email}
+              required
+            />
+            <input
+              className="inputs"
+              onChange={handleChange}
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={formValues.password}
+              required
+            />
+            <button
+              className="loginB"
+              disabled={!formValues.email || !formValues.password}
+            >
+              Sign In
+            </button>
           </form>
         </div>
-        <div className="Admin">
+        <div className="admin">
           <form onSubmit={adminSubmit}>
-            <label for="chk" aria-hidden="true">
+            <label className="labelSign" htmlFor="chk" aria-hidden="true">
               Admin Login
             </label>
             <div className="input-wrapper">
               <input
-                className="email"
+                className="inputs"
                 onChange={adminChange}
                 name="email"
                 type="email"
@@ -95,7 +88,7 @@ const SignIn = (props) => {
             </div>
             <div className="input-wrapper">
               <input
-                className="password"
+                className="inputs"
                 onChange={adminChange}
                 type="password"
                 name="password"
@@ -106,7 +99,7 @@ const SignIn = (props) => {
             </div>
             <div className="button1">
               <button
-                className="regButton"
+                className="loginB"
                 disabled={!adminForm.email || !adminForm.password}
               >
                 Sign In
@@ -115,7 +108,7 @@ const SignIn = (props) => {
           </form>
         </div>
       </div>
-    </body>
+    </div>
   )
 }
 

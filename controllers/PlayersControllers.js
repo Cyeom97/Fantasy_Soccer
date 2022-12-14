@@ -56,11 +56,21 @@ const DeletePlayer = async (req, res) => {
     throw error
   }
 }
+//update database
+const bulkCreate = async (req, res) => {
+  try {
+    const newPlayers = await Player.bulkCreate(req.body)
+    res.send(newPlayers)
+  } catch (error) {
+    throw error
+  }
+}
 
 module.exports = {
   GetPlayers,
   GetOnePlayer,
   createPlayers,
   updatePlayer,
-  DeletePlayer
+  DeletePlayer,
+  bulkCreate
 }

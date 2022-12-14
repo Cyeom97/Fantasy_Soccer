@@ -4,7 +4,7 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     return queryInterface.changeColumn('players', 'totalPoints', {
-      type: Sequelize.INTEGER
+      type: 'INTEGER USING CAST("column" as INTEGER)'
     })
   },
 

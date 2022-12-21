@@ -1,4 +1,5 @@
 const express = require('express')
+const session = require('express-session')
 const cors = require('cors')
 const logger = require('morgan')
 const AuthRouter = require('./routes/AuthRouter')
@@ -15,6 +16,29 @@ const PORT = process.env.PORT || 3001
 app.use(cors())
 app.use(logger('dev'))
 app.use(express.json())
+
+app.use(
+  session({
+    resave: false,
+    saveUninitalized: false,
+    secret: 'session',
+    cookie: {
+      maxAge: 1000 * 60 * 60,
+      sameSite: 'none',
+      secure: true
+    }
+  })
+)
+
+// app.post('/new', async (req, res) => {
+//   try {
+//     const cook = req.body.name
+//     req.session.name = cook
+//     res.send({ message: 'saves' }).status(201)
+//   } catch (error) {
+//     console.log(error)
+//   }
+// })
 
 //routes
 app.use('/auth', AuthRouter)
